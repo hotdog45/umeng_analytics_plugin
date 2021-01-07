@@ -60,7 +60,7 @@
     if (dic == nil) {
         [MobClick event:eventId];
     } else {
-        [MobClick event:eventId label:dic];
+        [MobClick event:eventId attributes:dic];
     }
     
     result([NSNumber numberWithBool:YES]);
