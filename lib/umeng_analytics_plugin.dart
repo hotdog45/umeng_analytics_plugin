@@ -60,16 +60,9 @@ class UmengAnalyticsPlugin {
     return _channel.invokeMethod<bool>('pageEnd', map);
   }
 
-  /// Send a general event for [eventId] with a [label]
-  static Future<bool> event(String eventId, {Map<String,String> content}) async {
-    Map<String, dynamic> map = {
-      'eventId': eventId,
-    };
+ /// 发送自定义事件（目前属性值支持字符、整数、浮点、长整数，暂不支持NULL、布尔、MAP、数组）
+  static Future<bool> event(String eventId, {Map<String,dynamic> content}) async {
 
-    if (map != null) {
-      map['data'] = content;
-    }
-
-    return _channel.invokeMethod<bool>('event', map);
+    return _channel.invokeMethod<dynamic>('event', <String, dynamic>{'eventId': eventId, 'data': content});
   }
 }

@@ -95,7 +95,7 @@ public class MethodCallHandlerImpl implements MethodChannel.MethodCallHandler {
 
     private void event(MethodCall call, MethodChannel.Result result) {
         final String eventId = call.argument("eventId");
-        final Map<String,String> data = call.argument("data");
+        final Map data = call.argument("data");
 
         MobclickAgent.onEvent(context, eventId, data);
 

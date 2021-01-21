@@ -54,15 +54,16 @@
 }
 
 - (void)event:(FlutterMethodCall*)call result:(FlutterResult)result {
-    NSString* eventId = call.arguments[@"eventId"];
-    NSDictionary* dic = call.arguments[@"data"];
+    // NSString* eventId = call.arguments[@"eventId"];
+    // NSDictionary* dic = call.arguments[@"data"];
     
-    if (dic == nil) {
-        [MobClick event:eventId];
-    } else {
-        [MobClick event:eventId attributes:dic];
-    }
-    
+    // if (dic == nil) {
+    //     [MobClick event:eventId];
+    // } else {
+    //     [MobClick event:eventId attributes:dic];
+    // }
+    NSDictionary *args = call.arguments;
+    [MobClick event:args[@"eventId"] attributes:args[@"data"]];
     result([NSNumber numberWithBool:YES]);
 }
 
