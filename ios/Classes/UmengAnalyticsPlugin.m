@@ -64,6 +64,7 @@
     // }
     NSDictionary *args = call.arguments;
     [MobClick event:args[@"eventId"] attributes:args[@"data"]];
+
     result([NSNumber numberWithBool:YES]);
 }
 
